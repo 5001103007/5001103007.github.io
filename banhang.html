@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn Phòng Phẩm</title>
+    <link rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #e74c3c;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #27ae60;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #27ae60;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-card-content {
+            padding: 20px;
+            text-align: center;
+            background-color: #ecf0f1;
+        }
+
+        .product-card-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #e74c3c;
+        }
+
+        .product-card-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #27ae60;
+            color: white;
+            padding: 18px 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: translateY(-50%) scale(1.1);
+            background-color: #2ecc71;
+        }
+
+        .view-cart-link {
+            font-size: 18px;
+            color: white;
+        }
+
+        .view-cart-link a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Văn Phòng Phẩm</h1>
+
+    <div class="container" id="product-container">
+        <div class="product-card" data-id="1" data-name="Bút bi" data-price="20000" data-image="bút bi.png">
+            <img src="bút bi.png" alt="Bút bi">
+            <div class="product-card-content">
+                <h3>Bút bi</h3>
+                <p>Giá: 20,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="2" data-name="Sổ tay" data-price="50000" data-image="sổ tay.png">
+            <img src="sổ tay.png" alt="Sổ tay">
+            <div class="product-card-content">
+                <h3>Sổ tay</h3>
+                <p>Giá: 50,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+            <div class="product-card" data-id="3" data-name="Bút chì" data-price="15000" data-image="bút chì.png">
+                <img src="bút chì.png" alt="Bút chì">
+                <div class="product-card-content">
+                    <h3>Bút chì</h3>
+                    <p>Giá: 15,000 VNĐ</p>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+    
+            <div class="product-card" data-id="4" data-name="Tẩy" data-price="10000" data-image="tẩy.png">
+                <img src="tẩy.png" alt="Tẩy">
+                <div class="product-card-content">
+                    <h3>Tẩy</h3>
+                    <p>Giá: 10,000 VNĐ</p>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+    
+            <div class="product-card" data-id="5" data-name="Bìa hồ sơ" data-price="25000" data-image="bìa hồ sơ.png">
+                <img src="bìa hồ sơ.png" alt="Bìa hồ sơ">
+                <div class="product-card-content">
+                    <h3>Bìa hồ sơ</h3>
+                    <p>Giá: 25,000 VNĐ</p>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+    
+            <div class="product-card" data-id="6" data-name="Kéo cắt giấy" data-price="35000" data-image="kéo.png">
+                <img src="kéo.png" alt="Kéo cắt giấy">
+                <div class="product-card-content">
+                    <h3>Kéo cắt giấy</h3>
+                    <p>Giá: 35,000 VNĐ</p>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+                </div>
+            </div>
+    
+
+            <div class="product-card" data-id="7" data-name="Keo sữa" data-price="15000" data-image="keo sữa.png">
+                <img src="keo sữa.png" alt="Keo sữa">
+                <div class="product-card-content">
+                    <h3>Keo sữa</h3>
+                    <p>Giá: 15,000 VNĐ</p>
+                    <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="8" data-name="Giấy A4" data-price="40000" data-image="giấy a4.png">
+            <img src="giấy a4.png" alt="Giấy A4">
+            <div class="product-card-content">
+                <h3>Giấy A4</h3>
+                <p>Giá: 40,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="9" data-name="Kẹp giấy" data-price="18000" data-image="kẹp giấy.png">
+            <img src="kẹp giấy.png" alt="Kẹp giấy">
+            <div class="product-card-content">
+                <h3>Kẹp giấy</h3>
+                <p>Giá: 18,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="10" data-name="Băng keo" data-price="60000" data-image="băng keo.png">
+            <img src="băng keo.png" alt="Băng keo">
+            <div class="product-card-content">
+                <h3>Băng keo</h3>
+                <p>Giá: 15,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="11" data-name="Tẩy" data-price="120000" data-image="tẩy.png">
+            <img src="dây thun.png" alt="Dây thun">
+            <div class="product-card-content">
+                <h3>Dây thun</h3>
+                <p>Giá: 10,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="12" data-name="Phấn trắng" data-price="2500000" data-image="phấn trắng.png">
+            <img src="phấn trắng.png" alt="Máy tính">
+            <div class="product-card-content">
+                <h3>Phấn trắng</h3>
+                <p>Giá: 20,000 VNĐ</p>
+                <button class="btn-buy">Thêm vào giỏ</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="cart-icon">
+        <i class="fas fa-cart-plus"></i>
+        <span class="view-cart-link"><a>Xem giỏ hàng</a></span>
+    </div>
+
+    
+   
+</body>
+</html>

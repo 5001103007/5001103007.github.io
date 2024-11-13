@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 50px;
+            background-color: #f4f4f4; 
+        }
+        .container {
+            display: flex;
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff; 
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .left, .right {
+            padding: 20px;
+        }
+        .left {
+            width: 40%;
+            background: #eab7b1;
+            border-right: 2px solid #4CAF50;
+            text-align: center;
+        }
+        .right {
+            width: 60%;
+            background: #f3d5d5;
+            text-align: center;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d32f2f; 
+            margin: 15px 0 10px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .slider-container {
+            margin-top: 10px;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, #cd6a6a 0%, #b77665 80%, #ddd 20%);
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .left h2, .right h2 {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .left:hover, .right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .container:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left">
+            <img src="avatar.jpg" alt="Hình đại diện" class="avatar">
+            <h2>Kỹ năng</h2>
+            <ul>
+                <li>
+                    Sử dụng một số ứng dụng tin học cơ bản.
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="80" disabled>
+                    </div>
+                </li>
+                <li>
+                    Nhanh nhạy, giải quyết vấn đề tốt.
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="80" disabled>
+                    </div>
+                </li>
+                <li>
+                    Có kỹ năng phân tích và diễn đạt tốt.
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="80" disabled>
+                    </div>
+                </li>
+            </ul>
+            <h2>Sở thích</h2>
+            <ul>
+                <li>Đọc các tác phẩm của nhà văn Nam Cao.</li>
+                <li>Thích chăm sóc chó, mèo.</li>
+                <li>Thích nghe nhạc khi làm việc và học tập.</li>
+            </ul>
+            <h2>Tham chiếu</h2>
+            <p>Huỳnh Ngọc Bảo Hân, sinh viên năm 4 Trường Đại học Sư Phạm thành phố Hồ Chí Minh.</p>
+            <p>Sđt: 0372186617</p>
+        </div>
+        <div class="right">
+            <h2>Huỳnh Ngọc Bảo Châu</h2>
+            <p>Sinh viên Trường Đại học Sư Phạm thành phố Hồ Chí Minh.</p>
+            <p>Sđt: 0942076145</p>
+            <p>Email: hnbchau16012006@gmail.com</p>
+            <p>Địa chỉ tạm trú: 351A, Lạc Long Quân, Phường 5, quận 11, Thành phố Hồ Chí Minh</p>
+            <h2>Vị trí làm việc mong muốn</h2>
+            <p>Gia sư Toán và Văn cho học sinh tiểu học.</p>
+            <h2>Các thành tích đạt được</h2>
+            <ul>
+                <li>Nằm trong đội tuyển HSG Văn của Trường THPT.</li>
+                <li>GPA năm 12 là 9.0.</li>
+                <li>12 năm liền đều đạt Học Sinh Giỏi.</li>
+                <li>Điểm Thi THPTQG năm 2024: Toán 8.8, Văn 9.25.</li>
+            </ul>
+            <h2>Kinh nghiệm làm việc</h2>
+            <p>Gia sư hè cho 2 học sinh lớp 4.</p>
+            <p><strong>Kết quả:</strong> Cả 2 em đều là học sinh giỏi trong năm học tiếp theo.</p>
+        </div>
+    </div>
+
+</body>
+</html>
